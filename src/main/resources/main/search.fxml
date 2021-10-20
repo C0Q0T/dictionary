@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="search_field" layoutX="32.0" layoutY="24.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ tiếng anh cần tìm" />
+      <TextArea layoutX="332.0" layoutY="86.0" prefHeight="315.0" prefWidth="306.0" />
+      <ListView layoutX="32.0" layoutY="86.0" prefHeight="315.0" prefWidth="227.0" />
+   </children>
+</AnchorPane>

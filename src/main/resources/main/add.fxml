@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" >
+   <children>
+      <TextField layoutX="57.0" layoutY="51.0" prefHeight="27.0" prefWidth="234.0" promptText="Từ tiếng anh" />
+      <TextField layoutX="57.0" layoutY="105.0" prefHeight="223.0" prefWidth="297.0" promptText="nghĩa" />
+      <Button layoutX="311.0" layoutY="52.0" mnemonicParsing="false" text="Add" />
+   </children>
+</AnchorPane>
