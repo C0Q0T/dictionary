@@ -21,9 +21,6 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
-        IOFile inputoutput = new IOFile();
-        ArrayList<Word> a = inputoutput.readWord();
-        System.out.println(a.get(1).getExplain());
         launch();
     }
 }

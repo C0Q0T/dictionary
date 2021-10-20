@@ -6,13 +6,16 @@
 
 <BorderPane fx:id="main_frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <top>
-      <AnchorPane prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_nav_add" layoutX="266.0" layoutY="28.0" mnemonicParsing="false" onAction="#addWord" prefHeight="25.0" prefWidth="67.0" text="add" />
-            <Button fx:id="btn_nav_change" layoutX="340.0" layoutY="28.0" mnemonicParsing="false" onAction="#changeWord" prefHeight="25.0" prefWidth="67.0" text="change" />
-            <Button fx:id="btn_nav_find" layoutX="419.0" layoutY="29.0" mnemonicParsing="false" onAction="#findWord" prefHeight="25.0" prefWidth="67.0" text="find" />
-            <Button fx:id="btn_nav_bookmark" layoutX="499.0" layoutY="29.0" mnemonicParsing="false" onAction="#bookmark" prefHeight="25.0" prefWidth="67.0" text="bookmark" />
+            <Button fx:id="btn_nav_add" layoutX="438.0" layoutY="24.0" mnemonicParsing="false" onAction="#addWord" prefHeight="25.0" prefWidth="67.0" text="add" />
+            <Button fx:id="btn_nav_change" layoutX="359.0" layoutY="24.0" mnemonicParsing="false" onAction="#changeWord" prefHeight="25.0" prefWidth="67.0" text="change" />
+            <Button fx:id="btn_nav_find" layoutX="279.0" layoutY="24.0" mnemonicParsing="false" onAction="#findWord" prefHeight="25.0" prefWidth="67.0" text="find" />
+            <Button fx:id="btn_nav_bookmark" layoutX="518.0" layoutY="24.0" mnemonicParsing="false" onAction="#bookmark" prefHeight="25.0" prefWidth="67.0" text="bookmark" />
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <Button mnemonicParsing="false" onAction="#findWord" text="Bắt đầu dịch" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
