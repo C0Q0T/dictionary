@@ -28,8 +28,7 @@ public class ViewController implements Initializable {
     @FXML
     protected ListView<String> listViewWord;
 
-    @FXML
-    protected Button btnDelete;
+
 
     public void actionSearch(String spelling) {
 

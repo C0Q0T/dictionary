@@ -7,24 +7,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="main_frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+<BorderPane fx:id="main_frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <top>
-      <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #112A46;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="50.0" prefWidth="640.0" style="-fx-background-color: #112A46;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_nav_add" layoutX="438.0" layoutY="24.0" mnemonicParsing="false" onAction="#showAddPane" prefHeight="25.0" prefWidth="67.0" text="add" />
-            <Button fx:id="btn_nav_change" layoutX="359.0" layoutY="24.0" mnemonicParsing="false" onAction="#showChangePane" prefHeight="25.0" prefWidth="67.0" text="change" />
-            <Button fx:id="btn_nav_find" contentDisplay="GRAPHIC_ONLY" layoutX="302.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showSearchPane" prefHeight="50.0" prefWidth="50.0">
+            <Button fx:id="btn_nav_add" contentDisplay="GRAPHIC_ONLY" layoutX="487.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showAddPane" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: inherit;" text="add">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/add-outline.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btn_nav_change" contentDisplay="GRAPHIC_ONLY" layoutX="437.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showChangePane" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: inherit;" text="change">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/pencil-outline.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btn_nav_find" contentDisplay="GRAPHIC_ONLY" layoutX="387.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showSearchPane" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: inherit;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icon/search-outline.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btn_nav_bookmark" layoutX="537.0" layoutY="22.0" mnemonicParsing="false" onAction="#showBookmarkPane" prefHeight="25.0" prefWidth="67.0" text="bookmark" />
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="537.0" layoutY="-1.0" mnemonicParsing="false" onAction="#showGoogleTranslatePane" prefHeight="50.0" prefWidth="50.0" text="Google">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/logo-google.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </AnchorPane>
    </top>

@@ -1,5 +1,6 @@
 package main;
 
+import feature.TextToSpeech;
 import interaction.BookmarkInteraction;
 import interaction.DictionaryInteraction;
 import javafx.fxml.FXML;
@@ -15,12 +16,13 @@ public class SearchController extends ViewController {
     protected BookmarkInteraction bookmarkInteraction = new BookmarkInteraction();
     protected DictionaryInteraction dictionaryInteraction = new DictionaryInteraction();
     public ArrayList<String> words = dictionaryInteraction.getStringSpelling();
+    protected TextToSpeech textToSpeech = new TextToSpeech();
 
     @FXML
-    protected Button bookmarkFilledStar;
+    protected Button btnDelete;
 
     @FXML
-    protected Button bookmarkStar;
+    protected Button btnAudio;
 
     public void loadWord() {
         System.out.println("Start load word");
@@ -32,18 +34,12 @@ public class SearchController extends ViewController {
     public void onSelectListView(MouseEvent e) {
         String spelling = listViewWord.getSelectionModel().getSelectedItem();
         if (spelling == null) return;
-
-        if (isExistBookmark(spelling)) {
-            loadOptionOn();
-        } else {
-            loadOptionOff();
-        }
         String explain = dictionaryInteraction.dictionaryLookup(spelling).getExplain();
 
         spellingWord.setText(spelling);
         engine = explainWord.getEngine();
         engine.loadContent(explain);
-        actionSearch(spelling);
+        showAllOption();
     }
 
     @FXML
@@ -64,50 +60,36 @@ public class SearchController extends ViewController {
         dictionaryInteraction.removeWord(dictionaryInteraction.dictionaryLookup(spelling));
         words = dictionaryInteraction.getStringSpelling();
         listViewWord.getItems().setAll(dictionaryInteraction.getStringSpelling(searchFieldWord.getText()));
-        hideAllOption();
+
         engine.loadContent("");
+        hideAllOption();
     }
 
     @FXML
-    public void onClickStar() {
+    public void onAudio() {
         String spelling = listViewWord.getSelectionModel().getSelectedItem();
-        bookmarkInteraction.removeWord(spelling);
-        loadOptionOn();
-
+        textToSpeech.makeSound(spelling);
     }
 
-    @FXML
-    public void onClickFilledStar() {
-        String spelling = listViewWord.getSelectionModel().getSelectedItem();
-        bookmarkInteraction.addWord(dictionaryInteraction.dictionaryLookup(spelling));
-        loadOptionOff();
-
-    }
-
-    public void loadOptionOn() {
+    public void showAllOption() {
         btnDelete.setVisible(true);
-        bookmarkFilledStar.setVisible(true);
-        bookmarkStar.setVisible(false);
-    }
+        btnAudio.setVisible(true);
 
-    public void loadOptionOff() {
-        btnDelete.setVisible(true);
-        bookmarkFilledStar.setVisible(false);
-        bookmarkStar.setVisible(true);
     }
 
     public void hideAllOption() {
         btnDelete.setVisible(false);
-        bookmarkFilledStar.setVisible(false);
-        bookmarkStar.setVisible(false);
+        btnAudio.setVisible(false);
+
     }
 
-    public boolean isExistBookmark(String spelling) {
-        return bookmarkInteraction.dictionaryLookup(spelling) != null;
-    }
+//    public boolean isExistBookmark(String spelling) {
+//        return bookmarkInteraction.dictionaryLookup(spelling) != null;
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        hideAllOption();
         loadWord();
     }
 }
