@@ -60,7 +60,7 @@ public class SearchController extends ViewController {
         dictionaryInteraction.removeWord(dictionaryInteraction.dictionaryLookup(spelling));
         words = dictionaryInteraction.getStringSpelling();
         listViewWord.getItems().setAll(dictionaryInteraction.getStringSpelling(searchFieldWord.getText()));
-
+        spellingWord.setText("");
         engine.loadContent("");
         hideAllOption();
     }

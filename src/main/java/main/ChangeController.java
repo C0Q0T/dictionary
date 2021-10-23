@@ -12,16 +12,22 @@ public class ChangeController extends AddWordController {
         if (this.isExistSpelling()) {
             statusUpdate.setText("Từ đã tồn tại, bạn có thể thay đổi.");
             statusUpdate.setStyle("-fx-text-fill: #03fc2c;");
+            String explain = dictionaryImprove.dictionaryLookup(spellingValue).getExplain();
+
+            engine = explainInputOld.getEngine();
+            engine.loadContent(explain);
             isAccept = true;
         } else {
             statusUpdate.setText("Từ không tồn tại, bạn có muốn thêm từ?");
             statusUpdate.setStyle("-fx-text-fill: #f54242;");
+            engine = explainInputOld.getEngine();
+            engine.loadContent("");
             isAccept = false;
 //            this.createAlert("Word doesn't exist!", "You can add a new word.");
         }
 
         if (spellingValue.isEmpty()) {
-            statusUpdate.setText("Đang nhập ....");
+            statusUpdate.setText("Hãy nhập từ");
             statusUpdate.setStyle("-fx-text-fill: #000;");
             isAccept = false;
         }
@@ -35,11 +41,11 @@ public class ChangeController extends AddWordController {
             dictionaryImprove.addWord(word);
             spellingInput.setText("");
             explainInput.setText("");
-            statusUpdate.setText("Đang nhập ....");
+            statusUpdate.setText("Thay đổi từ thành công");
             statusUpdate.setStyle("-fx-text-fill: #000;");
             isAccept = false;
         } else {
-            System.out.println("Can't add this word");
+            statusUpdate.setText("Thay đổi từ thất bại.");
         }
     }
 }

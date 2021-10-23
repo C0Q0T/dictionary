@@ -7,12 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddWordController implements Initializable {
     DictionaryImprove dictionaryImprove = new DictionaryImprove();
+    protected WebEngine engine;
 
     boolean isAccept = false;
 
@@ -26,23 +29,29 @@ public class AddWordController implements Initializable {
     protected Label statusUpdate;
 
     @FXML
+    protected WebView explainInputOld;
+
+    @FXML
     public void onSpellingChange() {
         String spellingValue = spellingInput.getText().trim();
 
         if (this.isExistSpelling()) {
-            statusUpdate.setText("Word existed!, you can only edit word.");
-            statusUpdate.setStyle("-fx-text-fill: #f54242;");
+            statusUpdate.setText("Từ này đã tồn tại, bạn chỉ có thể thay đổi");
+            statusUpdate.setStyle("-fx-text-fill: #fa5252;");
+
+
             isAccept = false;
         } else {
-            statusUpdate.setText("You can add this word");
-            statusUpdate.setStyle("-fx-text-fill: #03fc2c;");
+            statusUpdate.setText("Bạn có thể thêm từ này");
+            statusUpdate.setStyle("-fx-text-fill: #40c057;");
+
             isAccept = true;
 //            this.createAlert("Word doesn't exist!", "You can add a new word.");
         }
 
         if (spellingValue.isEmpty()) {
-            statusUpdate.setText("Please typing word");
-            statusUpdate.setStyle("-fx-text-fill: #000;");
+            statusUpdate.setText("Hãy nhập từ");
+            statusUpdate.setStyle("-fx-text-fill: #495057;");
             isAccept = false;
         }
     }
@@ -54,11 +63,12 @@ public class AddWordController implements Initializable {
             dictionaryImprove.addWord(word);
             spellingInput.setText("");
             explainInput.setText("");
-            statusUpdate.setText("Please typing word");
-            statusUpdate.setStyle("-fx-text-fill: #000;");
+            statusUpdate.setText("Thêm từ thành công");
+            statusUpdate.setStyle("-fx-text-fill: #495057;");
             isAccept = false;
         } else {
-            System.out.println("Can't add this word");
+            statusUpdate.setText("Thêm từ thất bại");
+            statusUpdate.setStyle("-fx-text-fill: #fa5252;");
         }
     }
 

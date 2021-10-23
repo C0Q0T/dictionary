@@ -3,13 +3,38 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AddWordController">
    <children>
-      <TextField fx:id="spellingInput" layoutX="57.0" layoutY="51.0" onKeyReleased="#onSpellingChange" prefHeight="27.0" prefWidth="234.0" promptText="Từ tiếng anh" />
-      <TextField fx:id="explainInput" layoutX="57.0" layoutY="105.0" prefHeight="169.0" prefWidth="297.0" promptText="nghĩa" />
-      <Button layoutX="311.0" layoutY="52.0" mnemonicParsing="false" onAction="#onAddBtn" text="Add" />
-      <Label fx:id="statusUpdate" layoutX="57.0" layoutY="78.0" text="Label" />
+      <TextField fx:id="spellingInput" layoutX="14.0" layoutY="124.0" onKeyReleased="#onSpellingChange" prefHeight="27.0" prefWidth="245.0" promptText="Từ tiếng anh">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="explainInput" alignment="TOP_LEFT" layoutX="14.0" layoutY="186.0" prefHeight="183.0" prefWidth="304.0" promptText="Nghĩa của từ">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button layoutX="264.0" layoutY="124.0" mnemonicParsing="false" onAction="#onAddBtn" style="-fx-background-color: #3b5bdb;" text="Thêm" textFill="#edf2ff">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label fx:id="statusUpdate" layoutX="17.0" layoutY="153.0" prefHeight="17.0" prefWidth="297.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <ImageView fitHeight="299.0" fitWidth="257.0" layoutX="396.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/img.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="14.0" style="-fx-text-fill: #495057;" text="Thêm từ">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

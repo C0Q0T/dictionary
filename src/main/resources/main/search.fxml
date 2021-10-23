@@ -8,17 +8,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
 <AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SearchController">
    <children>
-      <ListView fx:id="listViewWord" layoutX="32.0" layoutY="86.0" onMouseClicked="#onSelectListView" prefHeight="315.0" prefWidth="227.0" />
-      <TextField fx:id="searchFieldWord" layoutX="32.0" layoutY="24.0" onKeyReleased="#onChangeSearchField" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ tiếng anh cần tìm">
+      <ListView fx:id="listViewWord" layoutX="14.0" layoutY="86.0" onMouseClicked="#onSelectListView" prefHeight="315.0" prefWidth="251.0" />
+      <TextField fx:id="searchFieldWord" layoutX="14.0" layoutY="26.0" onKeyReleased="#onChangeSearchField" prefHeight="35.0" prefWidth="251.0" promptText="Nhập từ tiếng anh cần tìm">
          <cursor>
             <Cursor fx:constant="TEXT" />
-         </cursor></TextField>
-      <Label fx:id="spellingWord" layoutX="332.0" layoutY="51.0" text="Label" />
-      <WebView fx:id="explainWord" layoutX="330.0" layoutY="86.0" prefHeight="315.0" prefWidth="304.0" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Label fx:id="spellingWord" layoutX="330.0" layoutY="36.0" prefHeight="35.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <WebView fx:id="explainWord" layoutX="342.0" layoutY="86.0" prefHeight="315.0" prefWidth="304.0" />
       <Button fx:id="btnDelete" contentDisplay="GRAPHIC_ONLY" layoutX="572.0" layoutY="26.0" mnemonicParsing="false" onAction="#deleteWord" prefHeight="50.0" prefWidth="61.0" style="-fx-background-color: inherit;" text="Delete">
          <cursor>
             <Cursor fx:constant="HAND" />
