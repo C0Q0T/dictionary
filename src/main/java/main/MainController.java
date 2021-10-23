@@ -1,36 +1,46 @@
 package main;
 
-import dictionary.Word;
-import javafx.event.ActionEvent;
+import interaction.BookmarkInteraction;
+import interaction.DictionaryInteraction;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import feature.IOFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
+
     @FXML
     private BorderPane main_frame;
 
+    private AnchorPane anchorAddPane = null;
+    private AnchorPane anchorBookmarkPane = null;
+    private AnchorPane anchorHistoryPane = null;
+    private AnchorPane anchorSearchPane = null;
+    private AnchorPane anchorEditPane = null;
+
+    private AnchorPane currentPane;
+
     @FXML
-    protected void addWord() {
+    protected void showAddPane() {
         loadPage("add");
     }
     @FXML
-    protected void changeWord() {
+    protected void showChangePane() {
         loadPage("changeword");
     }
     @FXML
-    protected void findWord() {
+    protected void showSearchPane() {
         loadPage("search");
     }
     @FXML
-    protected void bookmark() {
+    protected void showBookmarkPane() {
         loadPage("bookmark");
     }
 
@@ -46,5 +56,9 @@ public class MainController {
         main_frame.setCenter(root);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        showSearchPane();
+    }
 
 }

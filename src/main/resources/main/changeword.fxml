@@ -2,17 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16">
+<AnchorPane prefHeight="420.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ChangeController">
    <children>
-      <TextField layoutX="68.0" layoutY="54.0" prefHeight="32.0" prefWidth="257.0" promptText="từ cần tìm" />
-      <Button layoutX="347.0" layoutY="54.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" text="Find" />
-      <Label layoutX="78.0" layoutY="86.0" prefHeight="25.0" prefWidth="221.0" text="không tìm thấy từ" textFill="#f20000" />
-      <TextArea layoutX="68.0" layoutY="119.0" prefHeight="195.0" prefWidth="257.0" />
-      <Button layoutX="163.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Button" />
+      <TextField fx:id="spellingInput" layoutX="201.0" layoutY="178.0" onKeyReleased="#onSpellingChange" prefHeight="32.0" prefWidth="257.0" promptText="từ cần tìm" />
+      <Label fx:id="statusUpdate" layoutX="201.0" layoutY="152.0" onKeyReleased="#onSpellingChange" prefHeight="25.0" prefWidth="221.0" text="Nhập từ cần thay thế" textFill="#1b1b1b" />
+      <Button fx:id="onSaveButton" layoutX="299.0" layoutY="260.0" mnemonicParsing="false" onAction="#onSaveBtn" prefHeight="25.0" prefWidth="61.0" text="Lưu" />
+      <TextField fx:id="explainInput" layoutX="201.0" layoutY="217.0" prefHeight="32.0" prefWidth="257.0" />
    </children>
 </AnchorPane>

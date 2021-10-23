@@ -26,7 +26,7 @@ public class IOFile {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             while ((line = bufferedReader.readLine()) != null) {
-                tempWord = line.split("   ");
+                tempWord = line.split("\t");
 
                 if (tempWord.length >= 2) {
                     words.add(new Word(tempWord[0], tempWord[1]));
@@ -42,11 +42,11 @@ public class IOFile {
         return words;
     }
 
-    public void write(ArrayList<Word> words) {
-        this.write(words, "src/main/resources/data/dictionary.txt");
+    public void writeWord(ArrayList<Word> words) {
+        this.writeWord(words, "src/main/resources/data/dictionary.txt");
     }
 
-    public void write(ArrayList<Word> words, String path) {
+    public void writeWord(ArrayList<Word> words, String path) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8);
             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);

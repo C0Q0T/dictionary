@@ -10,6 +10,7 @@ public class Dictionary {
     public void push(Word word) {
         int length = words.size();
         int index = searchIndexInsert(0, length - 1, word.getSpelling());
+        // if index = -1, word exist
         if (index <= length && index >= 0) words.add(index, word);
     }
 
@@ -19,23 +20,26 @@ public class Dictionary {
         if (mid == words.size()) return mid;
         Word word = words.get(mid);
         int compare = word.getSpelling().compareTo(spelling);
+        // word found
         if (compare == 0) return -1;
         if (compare > 0) return searchIndexInsert(start, mid - 1, spelling);
         return searchIndexInsert(mid + 1, end, spelling);
     }
 
-    private Word binaryLookup(int start, int end, String spelling) {
+    // Find exactly word, return Word
+    private Word lookupWord(int start, int end, String spelling) {
         if (end < start) return null;
         int mid = start + (end - start) / 2;
         Word word = words.get(mid);
         String currentSpelling = word.getSpelling();
         int compare = currentSpelling.compareTo(spelling);
         if (compare == 0) return word;
-        if (compare > 0) return binaryLookup(start, mid - 1, spelling);
-        return binaryLookup(mid + 1, end, spelling);
+        if (compare > 0) return lookupWord(start, mid - 1, spelling);
+        return lookupWord(mid + 1, end, spelling);
     }
 
-    private int binarySearcher(int start, int end, String spelling) {
+    // Find similar word, return int index of word in array.
+    private int searcherWord(int start, int end, String spelling) {
         if (end < start) return -1;
         int mid = start + (end - start) / 2;
         Word word = words.get(mid);
@@ -45,18 +49,20 @@ public class Dictionary {
         }
         int compare = currentSpelling.compareTo(spelling);
         if (compare == 0) return mid;
-        if (compare > 0) return binarySearcher(start, mid - 1, spelling);
-        return binarySearcher(mid + 1, end, spelling);
+        if (compare > 0) return searcherWord(start, mid - 1, spelling);
+        return searcherWord(mid + 1, end, spelling);
     }
 
     public Word lookup(String spelling) {
-        return binaryLookup(0, words.size() - 1, spelling);
+        return lookupWord(0, words.size() - 1, spelling);
     }
 
+    // Find an array of similar word.
     public ArrayList<Word> searcher(String spelling) {
         ArrayList<Word> result = new ArrayList<>();
-        int index =  binarySearcher(0, words.size() - 1, spelling);
-//        int index = -1;
+        int index =  searcherWord(0, words.size() - 1, spelling);
+
+        // if index = -1, not found word, return blank Array.
         if (index >= 0) {
             result.add(words.get(index));
             int left = index - 1, right = index + 1;
@@ -69,7 +75,7 @@ public class Dictionary {
                     break;
             }
 
-            TextField searchfield;
+//            TextField searchfield;
             int length = words.size();
             while (right < length) {
                 Word leftWord = words.get(right++);

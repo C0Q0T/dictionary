@@ -2,16 +2,18 @@ package dictionary;
 
 //import app.helpers.IODictionaries;
 
+import feature.IOFile;
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DictionaryManagement {
     protected Dictionary dictionary = new Dictionary();
 
     public DictionaryManagement() {
-//        this.insertFromFile();
+        this.insertFromFile();
     }
 
+    /*
     public void insertFromCommandline() {
         Scanner scanner = new Scanner(System.in);
         String spelling = scanner.nextLine();
@@ -19,37 +21,41 @@ public class DictionaryManagement {
         Word word = new Word(spelling, explain);
         dictionary.push(word);
     }
-    /*
-        public void insertFromFile() {
-            IODictionaries rd = new IODictionaries();
+    */
+
+    public void insertFromFile() {
+        IOFile rd = new IOFile();
     //        dictionary.setWords(rd.read());   //TODO: Sort
-            ArrayList<Word> adds = rd.read();
-            for (Word add : adds) {
+        ArrayList<Word> adds = rd.readWord();
+        for (Word add : adds) {
                 dictionary.push(add);
             }
         }
 
-        public void saveWordsToFile() {
-            IODictionaries ioDictionaries = new IODictionaries();
-            ioDictionaries.write(dictionary.getWords(), "data/dictionaries.txt");
-        }
+    public void saveWordsToFile() {
+        IOFile ioDictionaries = new IOFile();
+        ioDictionaries.writeWord(dictionary.getWords(), "src/main/resources/data/dictionary.txt");
+    }
 
-        public void addWord(Word word) {
-            dictionary.push(word);
-            this.saveWordsToFile();
-        }
-    */
+    public void addWord(Word word) {
+        dictionary.push(word);
+        this.saveWordsToFile();
+    }
+
+    /*
     public void dictionaryLookup() {
         Scanner scanner = new Scanner(System.in);
         String spelling = scanner.nextLine();
         Word word = dictionary.lookup(spelling);
         System.out.println(word.getExplain());
     }
+     */
 
     public Word dictionaryLookup(String text) {
         return dictionary.lookup(text);
     }
 
+    /*
     public void dictionarySearcher() {
         Scanner scanner = new Scanner(System.in);
         String spelling = scanner.nextLine();
@@ -60,17 +66,18 @@ public class DictionaryManagement {
             System.out.println(" " + word.getExplain());
         }
     }
+     */
 
     public ArrayList<Word> dictionarySearcher(String searchText) {
         if (searchText.equals("")) return new ArrayList<>();
         return dictionary.searcher(searchText);
     }
-    /*
-        public void dictionaryExportToFile() {
-            IODictionaries iod = new IODictionaries();
-            iod.write(dictionary.getWords());
-        }
-    */
+
+    public void dictionaryExportToFile() {
+        IOFile iod = new IOFile();
+        iod.writeWord(dictionary.getWords());
+    }
+
     public ArrayList<Word> getWords() {
         return dictionary.getWords();
     }
