@@ -42,31 +42,12 @@ public class DictionaryManagement {
         this.saveWordsToFile();
     }
 
-    /*
-    public void dictionaryLookup() {
-        Scanner scanner = new Scanner(System.in);
-        String spelling = scanner.nextLine();
-        Word word = dictionary.lookup(spelling);
-        System.out.println(word.getExplain());
-    }
-     */
 
     public Word dictionaryLookup(String text) {
         return dictionary.lookup(text);
     }
 
-    /*
-    public void dictionarySearcher() {
-        Scanner scanner = new Scanner(System.in);
-        String spelling = scanner.nextLine();
-        ArrayList<Word> words = dictionary.searcher(spelling);
 
-        for (Word word : words) {
-            System.out.print(word.getSpelling());
-            System.out.println(" " + word.getExplain());
-        }
-    }
-     */
 
     public ArrayList<Word> dictionarySearcher(String searchText) {
         if (searchText.equals("")) return new ArrayList<>();

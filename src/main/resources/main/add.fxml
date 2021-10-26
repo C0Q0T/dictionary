@@ -22,7 +22,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label fx:id="statusUpdate" layoutX="17.0" layoutY="153.0" prefHeight="17.0" prefWidth="297.0">
+      <Label fx:id="statusUpdate" layoutX="17.0" layoutY="102.0" prefHeight="17.0" prefWidth="297.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>

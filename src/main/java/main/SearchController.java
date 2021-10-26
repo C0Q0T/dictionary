@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SearchController extends ViewController {
-    protected BookmarkInteraction bookmarkInteraction = new BookmarkInteraction();
+  //  protected BookmarkInteraction bookmarkInteraction = new BookmarkInteraction();
     protected DictionaryInteraction dictionaryInteraction = new DictionaryInteraction();
     public ArrayList<String> words = dictionaryInteraction.getStringSpelling();
     protected TextToSpeech textToSpeech = new TextToSpeech();
@@ -60,7 +60,8 @@ public class SearchController extends ViewController {
         dictionaryInteraction.removeWord(dictionaryInteraction.dictionaryLookup(spelling));
         words = dictionaryInteraction.getStringSpelling();
         listViewWord.getItems().setAll(dictionaryInteraction.getStringSpelling(searchFieldWord.getText()));
-        spellingWord.setText("");
+        spellingWord.setText("xóa thành công");
+        spellingWord.setStyle("-fx-text-fill: #40c057;");
         engine.loadContent("");
         hideAllOption();
     }

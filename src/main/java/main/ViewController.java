@@ -28,8 +28,6 @@ public class ViewController implements Initializable {
     @FXML
     protected ListView<String> listViewWord;
 
-
-
     public void actionSearch(String spelling) {
 
     }

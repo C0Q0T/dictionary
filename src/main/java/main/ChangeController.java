@@ -41,6 +41,8 @@ public class ChangeController extends AddWordController {
             dictionaryImprove.addWord(word);
             spellingInput.setText("");
             explainInput.setText("");
+            engine = explainInputOld.getEngine();
+            engine.loadContent("");
             statusUpdate.setText("Thay đổi từ thành công");
             statusUpdate.setStyle("-fx-text-fill: #000;");
             isAccept = false;

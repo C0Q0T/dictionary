@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TranslateGoogleController">
    <children>
-      <Button layoutX="286.0" layoutY="181.0" mnemonicParsing="false" onAction="#onTranslate" prefHeight="60.0" prefWidth="67.0" style="-fx-background-color: inherit;">
+      <Button fx:id="exchange_btn" layoutX="286.0" layoutY="181.0" mnemonicParsing="false" onAction="#on_exchange" prefHeight="60.0" prefWidth="67.0" style="-fx-background-color: inherit;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -20,7 +20,7 @@
          </opaqueInsets>
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="41.0">
-               <Image url="@../icon/arrowright.png" />
+               <Image url="@../icon/exchange_icon.png" />
             </ImageView>
          </graphic></Button>
       <Button layoutX="206.0" layoutY="325.0" mnemonicParsing="false" onAction="#onTranslate" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #1a73e8; -fx-border-radius: 50px; -fx-font-weight: bold;" text="Dịch" textFill="WHITE">
@@ -44,7 +44,7 @@
             <Font size="18.0" />
          </font>
       </TextArea>
-      <Button layoutX="213.0" layoutY="267.0" mnemonicParsing="false" onAction="#onAudio" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white;">
+      <Button fx:id="voice_l" layoutX="213.0" layoutY="267.0" mnemonicParsing="false" onAction="#onAudio" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -55,5 +55,17 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <Button fx:id="voice_r" layoutX="573.0" layoutY="267.0" mnemonicParsing="false" onAction="#onAudio" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/voice.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

@@ -36,9 +36,8 @@ public class AddWordController implements Initializable {
         String spellingValue = spellingInput.getText().trim();
 
         if (this.isExistSpelling()) {
-            statusUpdate.setText("Từ này đã tồn tại, bạn chỉ có thể thay đổi");
+            statusUpdate.setText("Từ này đã tồn tại, bạn ko thêm được!!");
             statusUpdate.setStyle("-fx-text-fill: #fa5252;");
-
 
             isAccept = false;
         } else {
@@ -59,7 +58,7 @@ public class AddWordController implements Initializable {
     public void onAddBtn() {
         if (isAccept) {
             Word word = new Word(spellingInput.getText().trim(), explainInput.getText().trim());
-            dictionaryImprove.removeWord(word.getSpelling());
+           // dictionaryImprove.removeWord(word.getSpelling());
             dictionaryImprove.addWord(word);
             spellingInput.setText("");
             explainInput.setText("");
